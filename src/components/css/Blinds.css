@@ -1,0 +1,24 @@
+#blindContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 2vh;
+    gap: 25vw;
+}
+
+.blind{
+    font-family: ui-sans-serif, -apple-system, system-ui, Segoe UI, Helvetica, Apple Color Emoji, Arial, sans-serif, Segoe UI Emoji, Segoe UI Symbol;
+}
+
+.numberBlind {
+    display: flex;
+    justify-content: center;
+    color: #F5F5F5;
+    font-size: 10vw;
+}
+
+.blindDescriptor {
+    display: flex;
+    justify-content: center;
+    color: #F5F5F5;
+    font-size: 2.5vw;
+}
