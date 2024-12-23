@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import './App.css'
 import Timer from './components/Timer'
 import Blinds from './components/Blinds'
@@ -15,7 +15,7 @@ function App() {
       <div id='main'>
         <Timer time={time} stopTimer={isPaused} setIndex={setIndex} blinds={blinds} arrayLengh={blinds.length}/>
         <Blinds blind={blinds[index]}/>
-        <Settings time={time} setNewTime={setTime} setIsPaused={setIsPaused} setBlinds={setBlinds}/>
+        <Settings time={time} setNewTime={setTime} setIsPaused={setIsPaused} setBlinds={setBlinds} setIndex={setIndex}/>
       </div>
     </>
   )

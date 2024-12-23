@@ -4,7 +4,7 @@ import './css/Settings.css'
 const Settings = (params) => {
     const [showSettings, setShowSettings] = useState(false)
     const [play, setPlay] = useState(false)
-    const [blinds, setBlinds] = useState([1, 2, 3, 4, 5, 6, 7])
+    const [blinds, setBlinds] = useState([100, 200, 300, 400])
 
     useEffect(() => {
             params.setBlinds(blinds)
@@ -36,10 +36,21 @@ const Settings = (params) => {
         params.setBlinds(updatedBlinds)
     }
 
+    const reset = () => {
+        params.setIndex(0)
+        params.setNewTime(5)
+        params.setIsPaused(true)
+        setPlay(!play)
+    }
+
     return (
         <div id="settingsContainer">
             <button className='settingsButton' onClick={toggleSettings}><i className="uil uil-cog settingsIcon"></i></button>
-            <button className='settingsButton' onClick={togglePlay}>{play ? <i className="uil uil-pause playIcon"></i> : <i className="uil uil-play playIcon"></i>}</button>
+            <div>
+                <button className='settingsButton' onClick={reset}><i className="uil uil-redo playIcon"></i></button>
+                <button className='settingsButton' onClick={togglePlay}>{play ? <i className="uil uil-pause playIcon"></i> : <i className="uil uil-play playIcon"></i>}</button>
+            </div>
+            
             {showSettings && (
                 <div id="settingsPage">
                     <div className="settingsContent">
