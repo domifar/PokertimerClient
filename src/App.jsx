@@ -5,12 +5,17 @@ import Blinds from './components/Blinds'
 import Settings from './components/Settings'
 
 function App() {
+  const [time, setTime] = useState(1)
+  const [isPaused, setIsPaused] = useState(true)
+  const [blind, setBlind] = useState(null)
+  const [blinds, setBlinds] = useState(null)
+
   return (
     <>
       <div id='main'>
-        <Timer time={100}/>
-        <Blinds />
-        <Settings />
+        <Timer time={time} stopTimer={isPaused} setBlind={setBlind} blinds={blinds}/>
+        <Blinds blind={blind}/>
+        <Settings time={time} setNewTime={setTime} setIsPaused={setIsPaused} setBlinds={setBlinds}/>
       </div>
     </>
   )
