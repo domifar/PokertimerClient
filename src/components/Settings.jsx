@@ -4,7 +4,7 @@ import './css/Settings.css'
 const Settings = (params) => {
     const [showSettings, setShowSettings] = useState(false)
     const [play, setPlay] = useState(false)
-    const [blinds, setBlinds] = useState([100, 200])
+    const [blinds, setBlinds] = useState([1, 2, 3, 4, 5, 6, 7])
 
     useEffect(() => {
             params.setBlinds(blinds)

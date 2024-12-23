@@ -15,10 +15,8 @@ const Timer = (params) => {
     }, [params.stopTimer])
 
     useEffect(() => {
-        if (blindIdex < params.arrayLengh) {
-            params.setIndex(blindIdex)
-        }
-    }, [blindIdex, params])
+        params.setIndex(blindIdex)
+    }, [blindIdex])
 
     useEffect(() => {
         if (isPaused) return
@@ -26,10 +24,9 @@ const Timer = (params) => {
         const timerInterval = setInterval(() => {
             setTime((prevTime) => {
                 if (prevTime <= 1) {
-                    setBlindIndex((prevIndex) => Math.min(prevIndex + 1, params.arrayLengh - 1))
                     setTime(5)
                     clearInterval(timerInterval)
-                    return 0
+                    setBlindIndex(Math.min(blindIdex + 1, params.arrayLengh - 1))
                 }
                 return prevTime - 1
             })
