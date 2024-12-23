@@ -7,7 +7,7 @@ const Timer = (params) => {
     const [blindIdex, setBlindIndex] = useState(0)
 
     useEffect(() => {
-        setTime(5)
+        setTime(parseInt(params.time * 60, 10))
     }, [params.time])
 
     useEffect(() => {
@@ -24,7 +24,7 @@ const Timer = (params) => {
         const timerInterval = setInterval(() => {
             setTime((prevTime) => {
                 if (prevTime <= 1) {
-                    setTime(5)
+                    setTime(parseInt(params.time * 60, 10))
                     clearInterval(timerInterval)
                     setBlindIndex(Math.min(blindIdex + 1, params.arrayLengh - 1))
                 }
