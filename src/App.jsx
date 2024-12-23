@@ -7,14 +7,14 @@ import Settings from './components/Settings'
 function App() {
   const [time, setTime] = useState(1)
   const [isPaused, setIsPaused] = useState(true)
-  const [blind, setBlind] = useState(null)
-  const [blinds, setBlinds] = useState(null)
+  const [index, setIndex] = useState(0)
+  const [blinds, setBlinds] = useState([100, 200])
 
   return (
     <>
       <div id='main'>
-        <Timer time={time} stopTimer={isPaused} setBlind={setBlind} blinds={blinds}/>
-        <Blinds blind={blind}/>
+        <Timer time={time} stopTimer={isPaused} setIndex={setIndex} blinds={blinds} arrayLengh={blinds.length}/>
+        <Blinds blind={blinds[index]}/>
         <Settings time={time} setNewTime={setTime} setIsPaused={setIsPaused} setBlinds={setBlinds}/>
       </div>
     </>

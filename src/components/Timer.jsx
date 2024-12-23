@@ -4,11 +4,9 @@ import React, { useEffect, useState } from 'react'
 const Timer = (params) => {
     const [time, setTime] = useState(null)
     const [isPaused, setIsPaused] = useState(null)
-    const [blinds, setBlinds] = useState([1, 2])
     const [blindIdex, setBlindIndex] = useState(0)
 
     useEffect(() => {
-        // setTime(parseInt(params.time * 60, 10))
         setTime(5)
     }, [params.time])
 
@@ -17,12 +15,10 @@ const Timer = (params) => {
     }, [params.stopTimer])
 
     useEffect(() => {
-        setBlinds(params.blinds)
-    }, [params.blinds])
-
-    useEffect(() => {
-        params.setBlind(blinds[0])
-    }, [])
+        if (blindIdex < params.arrayLengh) {
+            params.setIndex(blindIdex)
+        }
+    }, [blindIdex, params])
 
     useEffect(() => {
         if (isPaused) return
@@ -30,15 +26,7 @@ const Timer = (params) => {
         const timerInterval = setInterval(() => {
             setTime((prevTime) => {
                 if (prevTime <= 1) {
-                    setBlindIndex((prevIndex) => {
-                        if (prevIndex >= blinds.length - 1) {
-                            return prevIndex
-                        } else {
-                            return prevIndex + 1
-                        }
-                    })
-                    params.setBlind(blinds[blindIdex])
-                    // setTime(parseInt(params.time * 60, 10))
+                    setBlindIndex((prevIndex) => Math.min(prevIndex + 1, params.arrayLengh - 1))
                     setTime(5)
                     clearInterval(timerInterval)
                     return 0
