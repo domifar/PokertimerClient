@@ -27,6 +27,7 @@ const Timer = (params) => {
                     setTime(parseInt(params.time * 60, 10))
                     clearInterval(timerInterval)
                     setBlindIndex(Math.min(blindIdex + 1, params.arrayLengh - 1))
+                    playAudio()
                 }
                 return prevTime - 1
             })
@@ -39,6 +40,15 @@ const Timer = (params) => {
         const mins = Math.floor(seconds / 60).toString().padStart(2, '0')
         const secs = (seconds % 60).toString().padStart(2, '0')
         return `${mins}:${secs}`
+    }
+
+    const playAudio = () => {
+        console.log("audio")
+        const audio = new Audio('/newBlindSound.wav')
+        console.log(audio)
+        audio.play().catch((error) => {
+            console.error('Audio konnte nicht abgespielt werden:', error);
+        })
     }
 
     return (

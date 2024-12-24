@@ -5,7 +5,7 @@ import Blinds from './components/Blinds'
 import Settings from './components/Settings'
 
 function App() {
-  const [time, setTime] = useState(0)
+  const [time, setTime] = useState(0.1)
   const [isPaused, setIsPaused] = useState(true)
   const [index, setIndex] = useState(0)
   const [blinds, setBlinds] = useState([100, 200])
