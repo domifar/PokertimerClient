@@ -38,9 +38,9 @@ const Settings = (params) => {
 
     const reset = () => {
         params.setIndex(0)
-        params.setNewTime(5)
+        params.setNewTime(0)
         params.setIsPaused(true)
-        setPlay(!play)
+        setPlay(false)
     }
 
     return (

@@ -11,7 +11,7 @@ const Timer = (params) => {
     }, [params.time])
 
     useEffect(() => {
-        params.stopTimer ? setIsPaused(true) : setIsPaused(false)
+        setIsPaused(params.stopTimer)
     }, [params.stopTimer])
 
     useEffect(() => {
